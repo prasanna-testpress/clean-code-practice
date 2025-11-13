@@ -19,3 +19,23 @@ def perform_calculation(operands,operates: list[int])->string:
             return f"Product:{operates[0]*operates[1]}"
         case _:
             return f"Invalid"
+        
+# better anwser
+from enum import Enum
+from typing import List
+
+class Operation(Enum):
+    SUM = 1
+    PRODUCT = 2
+
+def perform_calculation(operation: Operation, numbers: List[int]) -> int:
+    """Perform a calculation based on the given operation."""
+    if operation == Operation.SUM:
+        return sum(numbers)
+    elif operation == Operation.PRODUCT:
+        result = 1
+        for n in numbers:
+            result *= n
+        return result
+    else:
+        raise ValueError("Invalid operation")
